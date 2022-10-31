@@ -1,0 +1,58 @@
+.Profile {
+  padding-left: 30px;
+  padding-top: 120px;
+}
+.profile-card {
+  position: relative;
+  max-width: 400px;
+  background-color: #f7f9fe !important;
+  color: #565656 !important;
+  margin-bottom: 15px;
+}
+.users-heading-card {
+  position: relative;
+  max-width: 400px;
+  background-color: #f9d67e !important;
+  color: #08759f !important;
+  margin-bottom: 35px;
+}
+.users-heading {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #565656;
+}
+.add-icon {
+  position: absolute;
+  right: 15px;
+  font-size: 40px !important;
+  bottom: 34px;
+  cursor: pointer;
+  color: #565656;
+}
+.add-input {
+  width: 400px;
+  position: relative !important;
+  bottom: 30px;
+}
+.add-user-container {
+  position: relative;
+  width: 400px;
+}
+.users-heading-icon {
+  font-size: 27px !important;
+  margin-right: 7px;
+}
+.delete-icon {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  font-size: 26px !important;
+}
+.tweet-button {
+  position: absolute !important;
+  right: 15px;
+  bottom: 15px;
+  font-size: 10px !important;
+  color: #565656 !important;
+  border: solid 1px #565656 !important;
+}

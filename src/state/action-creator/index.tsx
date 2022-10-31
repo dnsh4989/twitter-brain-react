@@ -11,21 +11,25 @@ export const addUser = (user: any) => {
 
 export const fetchUsersAsync = (): any => {
   return (dispatch: any, getState: any) => {
-    axios.get("http://localhost:9000/profile/all").then((response: any) => {
-      dispatch({
-        type: "FETCH_USERS",
-        payload: response.data.profiles,
+    axios
+      .get("https://twitter-brain-nodejs.vercel.app/profile/all")
+      .then((response: any) => {
+        dispatch({
+          type: "FETCH_USERS",
+          payload: response.data.profiles,
+        });
       });
-    });
   };
 };
 
 export const smartReTweetAsync = (): any => {
   return (dispatch: any, getState: any) => {
-    axios.get("http://localhost:9000/retweet/smart").then((response: any) => {
-      console.log(response);
-      alert("Retweeted");
-    });
+    axios
+      .get("https://twitter-brain-nodejs.vercel.app/retweet/smart")
+      .then((response: any) => {
+        console.log(response);
+        alert("Retweeted");
+      });
   };
 };
 
@@ -33,7 +37,7 @@ export const addUsersAsync = (username: any): any => {
   return (dispatch: any, getState: any) => {
     console.log(username);
     axios
-      .post("http://localhost:9000/profile/add", { username })
+      .post("https://twitter-brain-nodejs.vercel.app/profile/add", { username })
       .then((response: any) => {
         if (response.data === "Profile added.") {
           dispatch(fetchUsersAsync());
@@ -46,7 +50,10 @@ export const updateUsersAsync = (user: any): any => {
   return (dispatch: any, getState: any) => {
     console.log(user);
     axios
-      .put("http://localhost:9000/profile/update/" + user._id, user)
+      .put(
+        "https://twitter-brain-nodejs.vercel.app/profile/update/" + user._id,
+        user
+      )
       .then((response: any) => {
         dispatch(fetchUsersAsync());
       });
@@ -57,7 +64,9 @@ export const deleteUsersAsync = (user: any): any => {
   return (dispatch: any, getState: any) => {
     console.log(user);
     axios
-      .delete("http://localhost:9000/profile/delete/" + user._id)
+      .delete(
+        "https://twitter-brain-nodejs.vercel.app/profile/delete/" + user._id
+      )
       .then((response: any) => {
         dispatch(fetchUsersAsync());
       });

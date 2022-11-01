@@ -75,7 +75,7 @@ export const deleteUsersAsync = (user: any): any => {
 export const getNextScheduleAsync = (): any => {
   return (dispatch: any, getState: any) => {
     axios
-      .get("http://localhost:9000/retweet/nextSchedule")
+      .get("https://twitter-brain-nodejs.vercel.app/retweet/nextSchedule")
       .then((response: any) => {
         dispatch({
           type: "FETCH_NEXT_TASK",

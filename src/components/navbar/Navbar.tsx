@@ -148,7 +148,8 @@ function Navbar() {
               </Button>
             ))}
             <div className="next-schedule">
-              Next Scheduled Retwees at: {nextSchedule}
+              Next Re-Tweet At :{" "}
+              <span className="time-string">{nextSchedule}</span>
             </div>
           </Box>
           <Box sx={{ flexGrow: 0 }}>

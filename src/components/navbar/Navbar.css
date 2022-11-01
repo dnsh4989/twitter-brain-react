@@ -20,3 +20,11 @@
   font-weight: bolder;
   -webkit-font-smoothing: auto;
 }
+.time-string {
+  color: #07759f;
+  font-size: 19px;
+  text-decoration: overline;
+  text-decoration-color: #07759f;
+  text-decoration-thickness: 2px;
+  text-decoration-style: double;
+}

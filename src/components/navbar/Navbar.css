@@ -12,3 +12,11 @@
   font-size: 8px;
   display: block;
 }
+.next-schedule {
+  position: absolute;
+  right: 125px;
+  top: 24px;
+  color: #6e6e68;
+  font-weight: bolder;
+  -webkit-font-smoothing: auto;
+}

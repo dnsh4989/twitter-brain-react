@@ -13,11 +13,27 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import "./Navbar.css";
+import { useSelector } from "react-redux";
+import { getNextScheduleAsync } from "../../state/action-creator";
+import { store } from "../../state";
 
 const pages = ["Users", "Retweets", "Hashtags"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Navbar() {
+  React.useEffect(() => {
+    console.log("Nav component mounted..");
+
+    store.dispatch(getNextScheduleAsync());
+    setInterval(() => {
+      store.dispatch(getNextScheduleAsync());
+    }, 1000 * 5 * 60);
+  }, []);
+
+  let nextSchedule = new Date(
+    useSelector((state: any) => state.nextSchedule)
+  ).toLocaleString();
+
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -48,7 +64,6 @@ function Navbar() {
             className="logo-icon"
             sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
           />
-
           <Typography
             variant="h6"
             noWrap
@@ -67,7 +82,6 @@ function Navbar() {
             <span className="logo-text">Twitter Brain</span>
             <p className="logo-description">Ai.</p>
           </Typography>
-
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -133,8 +147,10 @@ function Navbar() {
                 {page}
               </Button>
             ))}
+            <div className="next-schedule">
+              Next Scheduled Retwees at: {nextSchedule}
+            </div>
           </Box>
-
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

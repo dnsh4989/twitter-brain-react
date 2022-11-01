@@ -1,5 +1,4 @@
 import axios from "axios";
-import { Observable } from "rxjs";
 
 export const addUser = (user: any) => {
   console.log(user, "Lol");
@@ -69,6 +68,19 @@ export const deleteUsersAsync = (user: any): any => {
       )
       .then((response: any) => {
         dispatch(fetchUsersAsync());
+      });
+  };
+};
+
+export const getNextScheduleAsync = (): any => {
+  return (dispatch: any, getState: any) => {
+    axios
+      .get("http://localhost:9000/retweet/nextSchedule")
+      .then((response: any) => {
+        dispatch({
+          type: "FETCH_NEXT_TASK",
+          payload: response,
+        });
       });
   };
 };

@@ -25,9 +25,6 @@ function Navbar() {
     console.log("Nav component mounted..");
 
     store.dispatch(getNextScheduleAsync());
-    setInterval(() => {
-      store.dispatch(getNextScheduleAsync());
-    }, 1000 * 5 * 60);
   }, []);
 
   let nextSchedule = new Date(
